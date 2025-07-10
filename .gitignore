@@ -1,0 +1,31 @@
+# --- Python ---
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# --- Node.js ---
+node_modules/
+package-lock.json
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+
+# --- VS Code ---
+.vscode/
+
+# --- Mac OS ---
+.DS_Store
+
+# --- Environment Variables ---
+.env
+
+# --- Frontend Output ---
+frontend/static/reportData.json
+
+# --- Build Folders ---
+build/
+target/
+
+venv/
