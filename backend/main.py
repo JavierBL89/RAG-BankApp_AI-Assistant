@@ -1,9 +1,9 @@
-from fastapi import Fastapi
-from backend.router import router
+from fastapi import FastAPI
+from router import router
 
 
 
-app= Fastapi()
+app = FastAPI()
 app.include_router(router)
 
 
