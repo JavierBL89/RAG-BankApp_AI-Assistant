@@ -1,0 +1,8 @@
+SCRAPER 
+
+curl -X POST http://127.0.0.1:8000/scrape \
+     -H "Content-Type: application/json" \
+     -d '{"scrape_url": "https://example.com"
+     }'
+
+

@@ -9,6 +9,10 @@ cd frontend
 python3 -m http.server 8080
 
 
+
+
+
+
 list ports in used
  - lsof -i :7860
 

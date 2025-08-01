@@ -1,0 +1,146 @@
+[
+    {
+        "category": "Mortgages",
+        "product": "First Time Buyer",
+        "description": "A mortgage designed to help first-time buyers navigate the home-buying process, offering up to 90% financing and optional deferred payment for 3 months.",
+        "url": "https://personalbanking.bankofireland.com/borrow/mortgages/first-time-buyer/",
+        "benefits": ""
+    },
+    {
+        "category": "Mortgages",
+        "product": "Home Movers",
+        "description": "A mortgage option tailored for individuals or families relocating home, offering up to 90% financing or 3.5× combined income, with terms up to 35 years and the ability to defer payments for 3 months. Grupo’s support guides you through each step, from borrowing calculations to solicitor appointments.",
+        "url": "https://personalbanking.bankofireland.com/borrow/mortgages/home-movers/",
+        "benefits": ""
+    },
+    {
+        "category": "Mortgages",
+        "product": "Buy to Let",
+        "description": "Designed for property investors, this mortgage provides 2% cash back on fixed-rate drawdowns, competitive interest rates, mobile mortgage support, and very accessible application options (online or phone).",
+        "url": "https://personalbanking.bankofireland.com/borrow/mortgages/investor/why-boi/",
+        "benefits": ""
+    },
+   
+   
+
+
+    { 
+        "category": "Loans",
+        "product": "Personal Loan",
+        "description": "An unsecured personal loan designed for a wide range of needs — from weddings and holidays to large purchases. You can borrow between €2,000 and €75,000 with flexible repayment terms from 1 to 5 years. Weekly or monthly repayment options are available. Approval depends on your credit profile.",
+        "url": "https://personalbanking.bankofireland.com/borrow/loans/personal-loan/",
+        "benefits": ""
+    },
+    { 
+        "category": "Loans",
+        "product": "Car Loan",
+        "description": "A flexible car loan for new or used vehicles — electric, hybrid, petrol or diesel. Borrow between €2,000 and €75,000 with terms of up to 7 years (for electric/hybrid) or 5 years (petrol/diesel). Variable APR from 6.5% for electric/hybrid and 7.1% for petrol/diesel. You may defer the first 3 payments if needed.",
+        "url": "https://personalbanking.bankofireland.com/borrow/loans/car-loan/",
+        "benefits": ""
+    },
+    { 
+        "category": "Loans",
+        "product": "Student Loan",
+        "description": "A loan tailored for undergraduate and postgraduate students in Ireland. Borrow up to €5,000 for undergraduate study or up to €10,000 for postgraduate. You can defer repayments for 3 months (undergrad) or up to 12 months (postgrad). Fast application — about 15 minutes online.",
+        "url": "https://personalbanking.bankofireland.com/borrow/loans/student-loan/",
+        "benefits": ""
+    },
+
+
+
+
+    { 
+        "category": "Credit Cards",
+        "product": "Classic Credit Card",
+        "description": "A no-annual-fee credit card offering up to 56 days interest-free credit on purchases if the balance is paid in full each month. It includes a 0% fixed purchase rate promotion for new customers for the first 6 months, and low-cost installment plans for purchases over €250.",
+        "url": "https://personalbanking.bankofireland.com/borrow/credit-cards/classic-credit-card/features-benefits/",
+        "benefits": ""
+    },
+    { 
+        "category": "Credit Cards",
+        "product": "Platinum Credit Card",
+        "description": "A premium credit card with Bank of Ireland's lowest standard interest rate, offering up to 56 days interest-free credit and 0% purchase rate for new customers for 6 months. Includes perks like worldwide multi-trip travel insurance (with winter sports cover), low-rate installment plans, and approval within 24 hours.",
+        "url": "https://personalbanking.bankofireland.com/borrow/credit-cards/platinum-advantage-card/features-benefits/",
+        "benefits": ""
+    },
+    { 
+        "category": "Credit Cards",
+        "product": "Student Credit Card",
+        "description": "A credit card tailored for full-time students (or recent graduates within two years) with no annual fee (though €30 government stamp applies), up to €1,000 credit limit, and up to 56 days interest-free when the balance is redeemed monthly. Features include 0% purchase interest for the first 6 months, worldwide travel insurance, emergency cash while abroad, and mobile app card management.",
+        "url": "https://personalbanking.bankofireland.com/borrow/credit-cards/student-credit-card/features-benefits/",
+        "benefits": ""
+    },
+
+
+
+    { 
+        "category": "Current Accounts",
+        "product": "Basic Bank Account",
+        "description": "A simple, no‑frills account with no maintenance fees, no overdraft, and no cheque book. Designed for adults and EU residents who do not already have a current account in Ireland, including international protection applicants.",
+        "url": "https://personalbanking.bankofireland.com/bank/current-accounts/basic-bank-account/features-benefits/",
+        "benefits": ""
+    },
+    { 
+        "category": "Current Accounts",
+        "product": "Smart Start Account",
+        "description": "A youth debit current account for children aged 7–15, launched to promote financial literacy. Set up by a parent/guardian, it includes parental controls, a child Visa debit card, and no monthly fee. Comes with optional 'Money Pot' savings at 2.0% AER and 24/7 fraud protection.",
+        "url": "https://personalbanking.bankofireland.com/bank/current-accounts/smart-start-account/features-benefits/",
+        "benefits": ""
+    },
+    { 
+        "category": "Current Accounts",
+        "product": "Graduate Current Account",
+        "description": "Tailored for recent graduates (within last 3 years), this account offers fee-free banking, optional arranged overdraft up to £3,000 interest-free (UK version), mobile app features, and no monthly maintenance fee.",
+        "url": "https://personalbanking.bankofireland.com/bank/current-accounts/graduate-current-account/features-benefits/",
+        "benefits": ""
+    },
+
+
+    { 
+        "category": "Saving Accounts",
+        "product": "SuperSaver Account",
+        "description": "A regular monthly savings account offering a 3.0% AER fixed interest for 12 months, then reverting to 2.0% variable (on balances up to €30,000). Save up to €2,500 via direct debit each month with instant access to your money.",
+        "url": "https://personalbanking.bankofireland.com/save-and-invest/savings/regular-savings-accounts/supersaver-account/features-and-benefits/",
+        "benefits": ""
+    },
+
+    { 
+        "category": "Saving Accounts",
+        "product": "MortgageSaver Account",
+        "description": " ",
+        "url": "A savings account for those building a mortgage deposit—save up to €2,500 monthly, earn a fixed rate, and receive a €2,000 bonus if you later draw down a Bank of Ireland First‑Time Buyer mortgage within 30 months.",
+        "benefits": "https://personalbanking.bankofireland.com/save-and-invest/savings/regular-savings-accounts/mortgagesaver-account/features-and-benefits/"
+    },
+    { 
+        "category": "Saving Accounts",
+        "product": "Save for Kids",
+        "description": "A savings account for children under 18, opened in the adult’s name with the child's name noted. Ideal for building future savings with flexible lodgement and instant access, and supporting financial literacy with activity packs.",
+        "url": "https://personalbanking.bankofireland.com/save-and-invest/savings/regular-savings-accounts/save-for-kids/",
+        "benefits": ""
+    },
+
+    { 
+        "category": "Pensions",
+        "product": "Pensions Learn More",
+        "description": "A savings account for children under 18, opened in the adult’s name with the child's name noted. Ideal for building future savings with flexible lodgement and instant access, and supporting financial literacy with activity packs.",
+        "url": "https://personalbanking.bankofireland.com/plan/pensions/pensions-learn-more/",
+        "benefits": ""
+    },
+
+
+
+    { 
+        "category": "Pensions",
+        "product": "Retirement Planning Calculator",
+        "description": "An information hub detailing Bank of Ireland’s pension services for personal retirement planning. It explains different pension types (personal pensions, buy-out bonds, Retirement Annuity Contracts), tax savings potential, and the digital tools available (online calculators, financial guides).",
+        "url": "https://personalbanking.bankofireland.com/plan/pensions/retirement-planning-calculator/",
+        "benefits": ""
+    },
+    { 
+        "category": "Pensions",
+        "product": "Company Pensions Overview",
+        "description": "A service enabling employers to set up and manage company pension schemes through Bank of Ireland's MyPension365 platform. Tailored for businesses, it highlights efficient pension administration, employee support, and compliance with upcoming auto-enrolment regulations.",
+        "url": "https://businessbanking.bankofireland.com/corporate-pensions/?_gl=1*edanmv*_gcl_au*MTE0NDA0NzYwNS4xNzUyMzQ0ODQ1*_ga*OTc0MDAxODQ3LjE3NTIzNDQ4NDM.*_ga_9RNYMFP1NM*czE3NTI1MTM3NDkkbzYkZzEkdDE3NTI1MTUzMjckajYwJGwwJGgw",
+        "benefits": ""
+    }
+]
