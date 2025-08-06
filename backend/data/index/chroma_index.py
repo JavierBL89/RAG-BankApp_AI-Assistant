@@ -1,10 +1,10 @@
-from langchain_commhnity.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
 from embeddings import embeddings
 from embeddings import load_dataSource
 
 
 
-PERSIST_DIR = "data/chroma_index"
+PERSIST_DIR = "data/index"
 COLLECTION = "banking_rag"
 
 

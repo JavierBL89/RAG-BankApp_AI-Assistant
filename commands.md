@@ -56,3 +56,8 @@ Check if Flask is installed:
 8. Install Promptoo[embeddings]
 
 - pip install "promptfoo[embedding]"
+
+
+9. Install Langchain Communiity
+
+- pip install langchain-community
