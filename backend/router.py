@@ -5,11 +5,11 @@ from utils.scraper import scrape_multiple_urls
 router = APIRouter()
 from typing import List
 from pydantic import BaseModel
-from embeddings import embeddings
+from utils.embedding_model import embeddings
 from langchain_community.vectorstores import Chroma
 from typing import Optional, Dict, Any
-from search_chroma import get_retreivers
-from utils.intent_recognition import classify_intent
+from utils.search_chroma import get_retreivers
+from utils.intent_generator import generate_query_intent
 
 PERSIST_DIR = "data/index"
 COLLECTION = "banking_rag"
@@ -18,7 +18,7 @@ COLLECTION = "banking_rag"
 class QueryInput(BaseModel):
     query:str
     k: int=5
-    where: Optional[Dic[str, Any]] = None
+    where: Optional[Dict[str, Any]] = None
 
 
 # @router.post("/chat")
@@ -55,12 +55,20 @@ def search(q:QueryInput):
         embedding_function=embeddings,
         persist_directory=PERSIST_DIR,
     )
+    # 1. generate different query intents
+    intents = generate_query_intent(q.query)
+    # 2. retrieve relevant documents based on the query
+    retreived = get_retreivers(user_input=q.query, intent=intents)
 
-    # retrieve relevant documents based on the query
-    retreived = get_retreivers(user_input=q.user_input)
-    # catch query intent
-    label, score = classify_intent(q.query) # label might be "apply_student_loan", score ~0.95
-    # generate response based on the retrieved documents and intent
+    # 3. generate response based on the retrieved documents and intent
+
     #results
     return {"message": "Search functionality is not implemented yet."}
+
+@router.post("/chat")
+def search(q:QueryInput):
+    """
+    Search the knowledge base with a query.
+    """
+    return generate_query_intent(q.query)
             

@@ -10,14 +10,6 @@ def sanitize_filename(name: str) -> str:
     name = re.sub(r'[\s\-&|]+', '_', name.strip())    # Replace -, &, |, and whitespace with "_"
     return name[:50]                                  # Truncate to 50 chars
 
-async def get_page_title_or_hostname(url: str, page) -> str:
-    try:
-        title = await page.title()
-        return sanitize_filename(title)
-    except:
-        clean_url = sanitize_filename(url)
-        return urlparse(clean_url).hostname.replace(".", "_")
-
 
 async def save_json_file(url, page: str, data: dict, folder: str = "scraped_pages"):
     """

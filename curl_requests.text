@@ -6,3 +6,41 @@ curl -X POST http://127.0.0.1:8000/scrape \
      }'
 
 
+SEARCH CONTEXT
+
+curl -X POST http://localhost:8000/search \
+  -H "Content-Type: application/json" \
+  -d '{
+    "query": "How do I get a student loan?"
+}'
+
+
+Query intent Generation
+
+curl -X POST http://127.0.0.1:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What is the capital of France?"}'
+
+curl -X POST http://127.0.0.1:8000/chat \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What is the interest rate for savings accounts?"}'
+
+
+HF-Infecence
+
+curl -X POST https://router.huggingface.co/v1/chat/completions \
+  -H "Authorization: Bearer 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" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "meta-llama/Meta-Llama-3-8B-Instruct:novita",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the capital of France?"
+      }
+    ]
+  }'
+
+
+
+

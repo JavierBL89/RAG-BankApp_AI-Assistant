@@ -1,13 +1,6 @@
-from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain.schema import Document
 import json, hashlib
 
-embeddings = HuggingFaceBgeEmbeddings(
-    model_name="BAAI/bge-m3",
-    model_kwargs={"device": "cpu"},
-    encode_kwargs={"normalize_embeddings": True},
-    query_instruction="Represent this query for retrieving relevant documents: {query}"
-)
 
 
 # build Docs into Langchain format (Document)

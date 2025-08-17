@@ -1,13 +1,13 @@
 from langchain_community.vectorstores import Chroma
-from embeddings import embeddings
-from embeddings import load_dataSource
+from utils.embedding_model import embeddings
+from utils.chunk_data import load_dataSource
 
 
 
 PERSIST_DIR = "data/index"
 COLLECTION = "banking_rag"
 
-
+# This script builds a Chroma vector store index for the banking knowledge base.
 def build_chroma():
     docs = load_dataSource()
     vs= Chroma(
@@ -22,6 +22,7 @@ def build_chroma():
     #Persist the index to disk
     vs.persist()
     print(f"Indexed {len(docs)} documents into Chroma at {PERSIST_DIR}")
+    
 
 if __name__ == "__main__":
     build_chroma()
