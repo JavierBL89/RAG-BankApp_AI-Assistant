@@ -50,7 +50,7 @@ def generate_query_intent(text: str) :
         # parse results
         if response.status_code == 200:
             result = response.json()
-            print("✅ Response:", result["choices"][0]["message"]["content"])
+            print("✅ Intent Generator Response:", result["choices"][0]["message"]["content"])
             return result["choices"][0]["message"]["content"]
         else:
             print(f"Error: {response.status_code} - {response.text}")

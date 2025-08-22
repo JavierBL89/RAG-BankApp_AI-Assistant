@@ -61,3 +61,9 @@ Check if Flask is installed:
 9. Install Langchain Communiity
 
 - pip install langchain-community
+
+
+
+10. Run Chroma(from root directory) to load datasource after changes in data
+
+- python -m backend.data.index.chroma_index

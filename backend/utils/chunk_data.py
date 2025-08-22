@@ -4,7 +4,7 @@ import json, hashlib
 
 
 # build Docs into Langchain format (Document)
-def load_dataSource(data: str = "data/products.json"):
+def load_dataSource(data: str = "backend/data/products.json"):
      with open(data, 'r', encoding='utf-8') as file:
         items= json.load(file)
     
