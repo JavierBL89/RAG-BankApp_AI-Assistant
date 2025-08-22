@@ -60,12 +60,12 @@ async def search(q:QueryInput):
     all_queries = generated_queries
     print("Generated queries:", all_queries)
     # 2. retrieve relevant documents based on the query
-    docs = await retrieve_similar_docs(all_queries)
-    print("Retrieved documents:", docs)
+    relevant_docs = await retrieve_similar_docs(all_queries)
+    print("Retrieved documents:", relevant_docs)
     # 3. generate response based on the retrieved documents and intent
-    context = [doc.page_content for doc in docs] # extract only page content (no metadata) from retrieved documents
+    context = [doc.page_content for doc in relevant_docs] # extract only page content (no metadata) from retrieved documents
     print("Context for response generation:", context)
-    bot_response = await generate_response(context)
+    bot_response = await generate_response(relevant_docs)
 
     return bot_response
 

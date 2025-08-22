@@ -25,6 +25,7 @@ def get_retrievers():
     # return vs.as_retriever(search_type="mmr", search_kwargs={"k": k})
 
     return vs.as_retriever(search_type="similarity", search_kwargs={"k": k})
+ 
 
 async def retrieve_similar_docs(all_queries: list[str]):
     """
@@ -33,10 +34,19 @@ async def retrieve_similar_docs(all_queries: list[str]):
     merged_query = " ".join(all_queries)  # Merge all queries into a single string for one-shot retrieval
 
     # get datasource
-    retrieved_datasource = get_retrievers()
-    context = await retrieved_datasource.ainvoke(merged_query)
+    retriever = get_retrievers()
+    relevant_retrieved_docs = retriever.get_relevant_documents(merged_query)
+
+    # Filter documents that match the intent
+    filtered_docs = [
+        doc for doc in relevant_retrieved_docs 
+        if merged_query.lower() in doc.metadata.get('product', '').lower()
+    ]
+
+    # Use only the filtered documents for context
+    context_docs = filtered_docs[:1] if filtered_docs else relevant_retrieved_docs[:1]
     
-    return context
+    return context_docs
 
 
 
