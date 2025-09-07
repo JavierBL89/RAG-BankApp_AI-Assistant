@@ -42,6 +42,10 @@ async def generate_response(context: list) :
         "Content-Type": "application/json"
         }
         payload = {
+            "parameters": {
+                "temperature": 0.5,
+                "max_new_tokens": 512,
+                },
             "messages": [
                 {
                     "role": "user",
@@ -55,8 +59,9 @@ async def generate_response(context: list) :
                        - Format your response in Markdown when apopropriate.
 
                        ### Response instructions
-                       - Base your response only in the retrieved documents.
-                       - If the answer is not in the retrieved documents, say "I don't know. Please leave your feedback for the team" or "I am not sure. Please leave your feedback for the team".
+                       - Do not start your response with a headding about the topic.
+                       - If the answer is in the retrieved documents, provide a concise and accurate answer based on the information in the documents.
+                       - If the answer is not in the retrieved documents, say "Sorry, the provided documents do not contain this information".
                        - Do not invent information or provide answers that are not in the retrieved documents.
                        - Provide the relevant link in the document where the answer was found.
                        - If the user asks for a specific product, provide the link to that product.
@@ -73,7 +78,7 @@ async def generate_response(context: list) :
         if response.status_code == 200:
             result = response.json()
             print("✅ Response:", result["choices"][0]["message"]["content"])
-            return result["choices"][0]["message"]["content"]
+            return result
         else:
             print(f"Error: {response.status_code} - {response.text}")
             traceback.print_exc()

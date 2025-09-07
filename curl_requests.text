@@ -5,16 +5,18 @@ curl -X POST http://127.0.0.1:8000/scrape \
      -d '{"scrape_url": "https://example.com"
      }'
 
+-------------------------------------
+
 
 SEARCH CONTEXT
 
-curl -X POST http://localhost:8000/search \
+curl -X POST http://localhost:8000/chat \
   -H "Content-Type: application/json" \
   -d '{
     "query": "How do I get a student loan?"
 }'
 
-
+-------------------------------------
 Query intent Generation
 
 curl -X POST http://127.0.0.1:8000/chat \
@@ -25,6 +27,7 @@ curl -X POST http://127.0.0.1:8000/chat \
   -H "Content-Type: application/json" \
   -d '{"query": "What is the interest rate for savings accounts?"}'
 
+-------------------------------------
 
 HF-Infecence
 
@@ -42,5 +45,6 @@ curl -X POST https://router.huggingface.co/v1/chat/completions \
   }'
 
 
+-------------------------------------
 
 

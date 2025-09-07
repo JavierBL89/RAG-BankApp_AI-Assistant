@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request
 import json
 #from rag_engine import handle_query
 from utils.scraper import scrape_multiple_urls
-router = APIRouter()
+
 from typing import List
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
@@ -11,24 +11,13 @@ from utils.intent_generator import generate_query_intent
 from utils.lama_bot import generate_response
 from itertools import chain
 
-
-PERSIST_DIR = "data/index"
-COLLECTION = "banking_rag"
+router = APIRouter()
 
 # Define the input model for the search query(deserialize)
 class QueryInput(BaseModel):
     query:str
     k: int=5
     where: Optional[Dict[str, Any]] = None
-
-
-# @router.post("/chat")
-# async def chat(request:Request):
-#     body = await request.json()
-#     user_query = body.get("query")
- #   response = handle_query(user_query)
-    # return {"response": response}
-
 
 class ScrapeRequest(BaseModel):
     scrape_url: List[str]
@@ -45,17 +34,23 @@ async def scrape_web_content(request: ScrapeRequest):
 ## TRY AND START SCRAPING CONTENT, THEN COMMIT IMPL
 
 
-@router.post("/search")
-async def search(q:QueryInput):
+@router.post("/chat")
+async def chat(q:QueryInput):
     """
     Search the knowledge base with a query.
     """
     # 1. generate different query intents based on user query
-    raw_output = generate_query_intent(q.query)
+    intent_output = generate_query_intent(q.query)
+    raw_output = intent_output["choices"][0]["message"]["content"]
+    # raw_output = intent_output["choices"][0]["message"]["content"]
+    if "Sorry, I can only answer questions that concerns about our Bank Products" in raw_output:
+         print("Generated output indicates:", raw_output)
+         return intent_output
+
     print("Raw output from intent generator:", raw_output)
     raw_output = raw_output.replace("\n", "")
     raw_output = raw_output.replace("- ", "-")
-    generated_queries = raw_output.split("-")
+    generated_queries = [q.strip() for q in raw_output.split("-") if q.strip()]
     generated_queries.append(q.query) # append the original query to the list of queries
     all_queries = generated_queries
     print("Generated queries:", all_queries)
@@ -70,8 +65,8 @@ async def search(q:QueryInput):
     return bot_response
 
 
-@router.post("/chat")
-def search(q:QueryInput):
+@router.post("/generate_intent")
+def generate_intent(q:QueryInput):
     """
     Search the knowledge base with a query.
     """

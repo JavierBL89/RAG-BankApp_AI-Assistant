@@ -1,0 +1,21 @@
+.bot ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.bot li {
+  margin-bottom: 5px;
+}
+
+.bot strong {
+  font-weight: bold;
+    color: #444;
+}
+
+.bot em {
+  font-style: italic;
+}
+
+.bot p {
+  margin: 8px 0;
+}
