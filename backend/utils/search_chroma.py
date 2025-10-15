@@ -1,6 +1,7 @@
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import Chroma
 from utils.embedding_model  import embeddings
 import os
+
 PERSIST_DIR = "data/index/vector_store_db"  # Directory where the Chroma vector store is persisted
 COLLECTION = "banking_rag"
 
