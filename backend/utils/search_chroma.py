@@ -1,59 +1,53 @@
-from langchain_chroma import Chroma
-from utils.embedding_model  import embeddings
 import os
+from langchain_chroma import Chroma
+from utils.embedding_model import embeddings
 
-PERSIST_DIR = "data/index/vector_store_db"  # Directory where the Chroma vector store is persisted
+PERSIST_DIR = "data/index/vector_store_db"  # Chroma persistent directory
 COLLECTION = "banking_rag"
 
 
-# Function to get retrievers from Chroma vector store
-def get_retrievers():
+def get_retrievers(k: int = 5, where: dict | None = None):
     """
-      Retrieve documents from Chroma vector store.
+    Return a retriever from the Chroma vector store.
     """
     print("📁 Using persist directory:", os.path.abspath(PERSIST_DIR))
 
-    k = 5  # Number of top results to return
-    # load the vector store
     vs = Chroma(
         collection_name=COLLECTION,
         embedding_function=embeddings,
         persist_directory=PERSIST_DIR,
     )
+
     print(f"Collection name: {vs._collection.name}")
     print(f"Number of documents: {vs._collection.count()}")
-        ### MaxMarginalRelevanceRetriever (from LangChain), which diversifies results by reducing redundancy:
-    # return vs.as_retriever(search_type="mmr", search_kwargs={"k": k})
 
-    return vs.as_retriever(search_type="similarity", search_kwargs={"k": k})
- 
+    # Similarity-based retriever
+    return vs.as_retriever(search_type="similarity", search_kwargs={"k": k, "filter": where})
 
-async def retrieve_similar_docs(all_queries: list[str]):
+
+def retrieve_similar_docs(all_queries: list[str]):
     """
-    Retrieve similar documents based on the query.
+    Retrieve similar documents based on the query list.
     """
-    merged_query = " ".join(all_queries)  # Merge all queries into a single string for one-shot retrieval
+    merged_query = " ".join(all_queries).strip()
 
-    # get datasource
-    retriever = get_retrievers()
+    retriever = get_retrievers(k=5)
     relevant_retrieved_docs = retriever.get_relevant_documents(merged_query)
 
-    # Filter documents that match the intent
+    # Optional product-based filtering
     filtered_docs = [
-        doc for doc in relevant_retrieved_docs 
-        if merged_query.lower() in doc.metadata.get('product', '').lower()
+        doc for doc in relevant_retrieved_docs
+        if merged_query.lower() in doc.metadata.get("product", "").lower()
     ]
 
-    # Use only the filtered documents for context
     context_docs = filtered_docs[:1] if filtered_docs else relevant_retrieved_docs[:1]
-    
     return context_docs
 
 
-
 if __name__ == "__main__":
-    r= get_retrievers(k=5, where={"category": "Mortgages"})
-    for data_source in r.invoke("How do I know what I can borrow?"):
-        print(data_source.metadata.get("product"), data_source.page_content)
-        print("URL:", data_source.metadata.get("url"))
-        print("---", data_source.page_content[:200], "...\n")
+    retriever = get_retrievers(k=5, where={"category": "Mortgages"})
+    results = retriever.invoke("How do I know what I can borrow?")
+    for doc in results:
+        print(doc.metadata.get("product"), doc.page_content[:200])
+        print("URL:", doc.metadata.get("url"))
+        print("---\n")

@@ -1,10 +1,7 @@
-from langchain_huggingface import HuggingFaceEmbeddings
+import os
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2",
-    model_kwargs={
-        "device": "cpu",
-        "trust_remote_code": True,
-    },
-    encode_kwargs={"normalize_embeddings": True}
+embeddings = HuggingFaceInferenceAPIEmbeddings(
+    api_key=os.getenv("HF_TOKEN"),
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
