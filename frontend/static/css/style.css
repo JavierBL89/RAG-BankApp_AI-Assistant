@@ -17,19 +17,8 @@ body {
   max-width: 1400px;
   }
 
-#bot-showcase{
-width: 90%;
-max-width: 600px;
-padding: 20px;
-border: 2px solid red;
-background-color: #fefefe;
-font-family: sans-serif;
-font-size: 16px;
-letter-spacing: 0.7px;
-}
 
-
-#bot-showcase {
+#chatbot-info-panel {
 width: 90%;
 max-width: 600px;
 padding: 20px;
@@ -37,7 +26,7 @@ border: 2px solid red;
 background-color: #fefefe;
 font-family: sans-serif;
 font-size: 14px;
-letters-spacing: 0.9px;
+letter-spacing: 0.9px;
 }
 
 .chat-container {

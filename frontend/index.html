@@ -10,34 +10,63 @@
 
     <!------ Chatbot Introduction ------>
   
-    <div id="bot-showcase">
-      <h2>About This Chatbot</h2>
-      <p>This chatbot is designed for <strong>general knowledge conversation and learning</strong>. You can ask it questions, get structured answers, and even view evaluation reports of its performance.</p>
-  
-      <h3>Models Used</h3>
+    <div class="chatbot-info-panel">
+      <h2>🏦 About This Banking Chatbot</h2>
+      <p>
+        This chatbot helps users explore <strong>Bank of Ireland’s financial products</strong> —
+        including mortgages, loans, credit cards, current accounts, savings, and pensions.
+        It retrieves verified information directly from official product pages to give you
+        <strong>accurate, quick, and helpful answers</strong>.
+      </p>
+    
+      <h3>💬 What You Can Ask</h3>
       <ul>
-        <li><strong>Zephyr-7B</strong> (primary model): Chosen for its strong reasoning and conversational ability. It is prone to timeouts due to being Hugging Face API. This is the reason is the primary model, so we can perform a fallback to Mistral, which also demonstrates a much better responses.</li>
-        <br>
-        <li><strong>Mistral-7B</strong> (fallback model): Automatically used when Zephyr is unavailable or times out. It provides extended and relevant responses. Furthermore, it pays more attention to the prompt instruction passed than the Zephyr model.</li>
+        <li>“How much can I borrow for my first home?”</li>
+        <li>“What’s the difference between a personal loan and a car loan?”</li>
+        <li>“Am I eligible for a Smart Start Account for my child?”</li>
+        <li>“What are the fees for a Graduate Current Account?”</li>
+        <li>“How do I apply for a pension with Bank of Ireland?”</li>
       </ul>
-  
-      <h3>Powered By</h3>
+    
+      <h3>⚙️ How It Works</h3>
+      <p>
+        The chatbot uses <strong>Retrieval-Augmented Generation (RAG)</strong> to search a curated
+        knowledge base of product descriptions and guides, ensuring responses are up to date and
+        accurate.
+      </p>
       <ul>
-        <li><strong>Hugging Face Inference API</strong> – for fast, hosted model responses.</li>
-        <li><strong>Markdown-it</strong> – for cleanly rendering Markdown responses.</li>
-        <li><strong>Promptfoo</strong> – used for model-based evaluation with GTP4o to evaluate and score models output for accuracy, tone, and helpfulness.</li>
-        <li><strong>Playwright</strong> – helps to extract relevant info from the browser generated promptfoo report to display it to you.</li>
+        <li><strong>Vector Search (Chroma + Hugging Face API):</strong> Finds semantically related content.</li>
+        <li><strong>Dynamic Context Response:</strong> Answers are generated from the retrieved sources.</li>
       </ul>
-  
-      <h3>Features</h3>
+    
+      <h3>📚 Knowledge Base Covers</h3>
+      <ul class="columns">
+        <li><strong>Mortgages:</strong> First-Time Buyer, Home Mover, Buy-to-Let</li>
+        <li><strong>Loans:</strong> Personal, Car, Student</li>
+        <li><strong>Credit Cards:</strong> Classic, Platinum, Student</li>
+        <li><strong>Accounts:</strong> Graduate, Basic, Smart Start</li>
+        <li><strong>Savings:</strong> SuperSaver, Save for Kids</li>
+        <li><strong>Pensions:</strong> Retirement, Company, Calculators</li>
+      </ul>
+    
+      <h3>🔒 Powered By</h3>
       <ul>
-        <li>Typing animation and timeout hinting.</li>
-        <li>Markdown support with bullet points, headers, and formatting.</li>
-        <li>Integrated report button to view <strong>LLM-generated evaluation feedback</strong>.</li>
+        <li><strong>LangChain + FastAPI</strong> for backend logic</li>
+        <li><strong>Hugging Face Inference API</strong> for embeddings</li>
+        <li><strong>Chroma Vector Store</strong>(Local Vector db) for quick search</li>
+        <li><strong>Meta-Llama-3-8B-Instruct</strong> for generation. Model hosted on my Huggingface Space(Private)</li>
       </ul>
-  
-      <p style="margin-top: 10px;">This demo showcases a lightweight yet powerful LLM chatbot system using modern APIs and open models. Designed to be flexible, transparent, and developer-friendly.</p>
+    
+      <h3>✨ Features</h3>
+      <ul>
+        <li>Instant answers on banking products and eligibility</li>
+        <li>Accurate retrieval from verified product pages</li>
+        <li>Context-aware responses with source URLs</li>
+        <li>Privacy-first: no personal data stored or shared</li>
+        <li>Mobile-friendly design</li>
+      </ul>
     </div>
+    
     <!------ Chatbot Introduction End ------>
   
   
