@@ -1,149 +1,158 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Banking Chatbot</title>
   <link rel="stylesheet" href="static/css/style.css" />
 </head>
+
 <body>
 
   <div id="main_wrapper">
 
     <!------ Chatbot Introduction ------>
-  
-    <div class="chatbot-info-panel">
-      <h2>🏦 About This Banking Chatbot</h2>
-      <p>
-        This chatbot helps users explore <strong>Bank of Ireland’s financial products</strong> —
-        including mortgages, loans, credit cards, current accounts, savings, and pensions.
-        It retrieves verified information directly from official product pages to give you
-        <strong>accurate, quick, and helpful answers</strong>.
-      </p>
-    
-      <h3>💬 What You Can Ask</h3>
-      <ul>
-        <li>“How much can I borrow for my first home?”</li>
-        <li>“What’s the difference between a personal loan and a car loan?”</li>
-        <li>“Am I eligible for a Smart Start Account for my child?”</li>
-        <li>“What are the fees for a Graduate Current Account?”</li>
-        <li>“How do I apply for a pension with Bank of Ireland?”</li>
-      </ul>
-    
-      <h3>⚙️ How It Works</h3>
-      <p>
-        The chatbot uses <strong>Retrieval-Augmented Generation (RAG)</strong> to search a curated
-        knowledge base of product descriptions and guides, ensuring responses are up to date and
-        accurate.
-      </p>
-      <ul>
-        <li><strong>Vector Search (Chroma + Hugging Face API):</strong> Finds semantically related content.</li>
-        <li><strong>Dynamic Context Response:</strong> Answers are generated from the retrieved sources.</li>
-      </ul>
-    
-      <h3>📚 Knowledge Base Covers</h3>
-      <ul class="columns">
-        <li><strong>Mortgages:</strong> First-Time Buyer, Home Mover, Buy-to-Let</li>
-        <li><strong>Loans:</strong> Personal, Car, Student</li>
-        <li><strong>Credit Cards:</strong> Classic, Platinum, Student</li>
-        <li><strong>Accounts:</strong> Graduate, Basic, Smart Start</li>
-        <li><strong>Savings:</strong> SuperSaver, Save for Kids</li>
-        <li><strong>Pensions:</strong> Retirement, Company, Calculators</li>
-      </ul>
-    
-      <h3>🔒 Powered By</h3>
-      <ul>
-        <li><strong>LangChain + FastAPI</strong> for backend logic</li>
-        <li><strong>Hugging Face Inference API</strong> for embeddings</li>
-        <li><strong>Chroma Vector Store</strong>(Local Vector db) for quick search</li>
-        <li><strong>Meta-Llama-3-8B-Instruct</strong> for generation. Model hosted on my Huggingface Space(Private)</li>
-      </ul>
-    
-      <h3>✨ Features</h3>
-      <ul>
-        <li>Instant answers on banking products and eligibility</li>
-        <li>Accurate retrieval from verified product pages</li>
-        <li>Context-aware responses with source URLs</li>
-        <li>Privacy-first: no personal data stored or shared</li>
-        <li>Mobile-friendly design</li>
-      </ul>
 
-      <div id="source-section">
-        <!-- JSON SECTION -->
-        <div class="json-buttons-container">
-          <h3>📦 Product Data</h3>
-          <p>
-            You can view or download the latest <strong>products.json</strong> file
-            used by the chatbot’s knowledge base.
-          </p>
-      
-          <div class="json-button-group">
-            <a href="/view-json" target="_blank" class="json-btn view-btn">
-              👁️ View JSON
-            </a>
-            <a href="/download-json" download class="json-btn download-btn">
-              📥 Download JSON
-            </a>
+    <div class="chatbot-info-panel">
+
+      <div class="info-header">
+        <h2>🏦 About This Banking Chatbot</h2>
+        <div id="source-section">
+          <!-- JSON SECTION -->
+          <div class="json-buttons-container">
+            <h3>📦 Product Data</h3>
+            <p>
+              You can view or download the latest <strong>products.json</strong> file
+              used by the chatbot’s knowledge base.
+            </p>
+
+            <div class="json-button-group">
+              <a href="/view-json" target="_blank" class="json-btn view-btn">
+                👁️ View JSON
+              </a>
+              <a href="/download-json" download class="json-btn download-btn">
+                📥 Download JSON
+              </a>
+            </div>
           </div>
-        </div>
-      
-        <!-- IMAGE SECTION -->
-        <div class="images-buttons-container">
-          <h3>🧩 Pipelines</h3>
-          <p>
-            You can view the <strong>Data Pipeline</strong> and
-            <strong>Query → Response Pipeline</strong> flow diagrams.
-          </p>
-      
-          <div class="images-button-group">
-            <a href="/view-image/data_pipeline" target="_blank" class="image-btn view-btn">
-              👁️ View Data Pipeline
-            </a>
-            <a href="/view-image/qr_pipeline" target="_blank" class="image-btn view-btn">
-              👁️ View Query–Response Pipeline
-            </a>
+
+          <!-- IMAGE SECTION -->
+          <div class="images-buttons-container">
+            <h3>🧩 Pipelines</h3>
+            <p>
+              You can view the <strong>Data Pipeline</strong> and
+              <strong>Query → Response Pipeline</strong> flow diagrams.
+            </p>
+
+            <div class="images-button-group">
+              <a href="/view-image/data_pipeline" target="_blank" class="image-btn view-btn">
+                👁️ View Data Pipeline
+              </a>
+              <a href="/view-image/qr_pipeline" target="_blank" class="image-btn view-btn">
+                👁️ View Query–Response Pipeline
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      
 
-     </div>
+      <div class="info-content">
+        <p>
+          This chatbot helps users explore <strong>Bank of Ireland’s financial products</strong> —
+          including mortgages, loans, credit cards, current accounts, savings, and pensions.
+          It retrieves verified information directly from official product pages to give you
+          <strong>accurate, quick, and helpful answers</strong>.
+        </p>
 
+        <h3>💬 What You Can Ask</h3>
+        <ul>
+          <li>“How much can I borrow for my first home?”</li>
+          <li>“What’s the difference between a personal loan and a car loan?”</li>
+          <li>“Am I eligible for a Smart Start Account for my child?”</li>
+          <li>“What are the fees for a Graduate Current Account?”</li>
+          <li>“How do I apply for a pension with Bank of Ireland?”</li>
+        </ul>
+
+        <h3>⚙️ How It Works</h3>
+        <p>
+          The chatbot uses <strong>Retrieval-Augmented Generation (RAG)</strong> to search a curated
+          knowledge base of product descriptions and guides, ensuring responses are up to date and
+          accurate.
+        </p>
+        <ul>
+          <li><strong>Vector Search (Chroma + Hugging Face API):</strong> Finds semantically related content.</li>
+          <li><strong>Dynamic Context Response:</strong> Answers are generated from the retrieved sources.</li>
+        </ul>
+
+        <h3>📚 Knowledge Base Covers</h3>
+        <ul class="columns">
+          <li><strong>Mortgages:</strong> First-Time Buyer, Home Mover, Buy-to-Let</li>
+          <li><strong>Loans:</strong> Personal, Car, Student</li>
+          <li><strong>Credit Cards:</strong> Classic, Platinum, Student</li>
+          <li><strong>Accounts:</strong> Graduate, Basic, Smart Start</li>
+          <li><strong>Savings:</strong> SuperSaver, Save for Kids</li>
+          <li><strong>Pensions:</strong> Retirement, Company, Calculators</li>
+        </ul>
+
+        <h3>🔒 Powered By</h3>
+        <ul>
+          <li><strong>LangChain + FastAPI</strong> for backend logic</li>
+          <li><strong>Hugging Face Inference API</strong> for embeddings</li>
+          <li><strong>Chroma Vector Store</strong>(Local Vector db) for quick search</li>
+          <li><strong>Meta-Llama-3-8B-Instruct</strong> for generation. Model hosted on my Huggingface Space(Private)
+          </li>
+        </ul>
+
+        <h3>✨ Features</h3>
+        <ul>
+          <li>Instant answers on banking products and eligibility</li>
+          <li>Accurate retrieval from verified product pages</li>
+          <li>Context-aware responses with source URLs</li>
+          <li>Privacy-first: no personal data stored or shared</li>
+          <li>Mobile-friendly design</li>
+        </ul>
+
+      </div>
     </div>
-    
-    <!------ Chatbot Introduction End ------>
-  
-  
-    <!------ Chatbot section ------>
-    <div class="chat-container">
-      <h2>Ask your banking assistant</h2>
-      <div id="chatbox"></div>
-  
-      <form id="chat-form">
-        <textarea type="text" id="user-input" placeholder="Ask me something..." autocomplete="off" required ></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-    <!------ Chatbot section end ------>
-  
-  
-    <div id="reportModal" style="display: none; position: fixed; top: 10%; left: 50%; transform: translateX(-50%);
+
+  </div>
+
+  <!------ Chatbot Introduction End ------>
+
+
+  <!------ Chatbot section ------>
+  <div class="chat-container">
+    <h2>Ask your banking assistant</h2>
+    <div id="chatbox"></div>
+
+    <form id="chat-form">
+      <textarea type="text" id="user-input" placeholder="Ask me something..." autocomplete="off" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <!------ Chatbot section end ------>
+
+
+  <div id="reportModal" style="display: none; position: fixed; top: 10%; left: 50%; transform: translateX(-50%);
     width: 80%; max-width: 600px; background: white; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
     z-index: 9999; border-radius: 8px; font-family: sans-serif;">
-      <h3>📝 Prompt Evaluation</h3>
-      <p><strong>Assertions:</strong></p>
-      <ul id="modalAssertions"></ul>
-      <p><strong>Prompt:</strong> <span id="modalPrompt"></span></p>
-      <p><strong>Outputs:</strong></p>
-      <pre id="modalOutputs" style="white-space: pre-wrap; background: #f5f5f5; padding: 10px;"></pre>
-      <button onclick="document.getElementById('reportModal').style.display='none'" style="margin-top: 10px;">Close</button>
-    </div>
-  
+    <h3>📝 Prompt Evaluation</h3>
+    <p><strong>Assertions:</strong></p>
+    <ul id="modalAssertions"></ul>
+    <p><strong>Prompt:</strong> <span id="modalPrompt"></span></p>
+    <p><strong>Outputs:</strong></p>
+    <pre id="modalOutputs" style="white-space: pre-wrap; background: #f5f5f5; padding: 10px;"></pre>
+    <button onclick="document.getElementById('reportModal').style.display='none'"
+      style="margin-top: 10px;">Close</button>
   </div>
-  
-  
+
+  </div>
+
+
   <script src="/static/js/app.js" defer></script>
   <script src="/static/js/configuration.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
 
-  </body>
 </body>
+</body>
+
 </html>

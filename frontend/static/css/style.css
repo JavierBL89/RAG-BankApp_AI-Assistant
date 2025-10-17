@@ -29,6 +29,16 @@ font-size: 14px;
 letter-spacing: 0.9px;
 }
 
+#info-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#source-section{
+  width: 50%;
+}
+
 .chat-container {
   background: white;
   padding: 20px;
