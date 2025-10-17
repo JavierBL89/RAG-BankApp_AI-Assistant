@@ -35,9 +35,6 @@ letter-spacing: 0.9px;
   justify-content: space-between;
 }
 
-#source-section{
-  width: 50%;
-}
 
 .chat-container {
   background: white;
@@ -120,68 +117,40 @@ button {
 
 
 /* Source Files Sections */
-#source-section {
-  max-width: 800px;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  font-family: "Inter", Arial, sans-serif;
-}
-
-.json-buttons-container,
-.images-buttons-container {
+.source-select-container {
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 1.5rem 2rem;
   text-align: center;
+  font-family: "Inter", Arial, sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
 }
 
-.json-buttons-container h3,
-.images-buttons-container h3 {
+.source-select-container h3 {
   color: #1565c0;
   margin-bottom: 0.5rem;
 }
 
-.json-buttons-container p,
-.images-buttons-container p {
+.source-select-container p {
   margin-bottom: 1.2rem;
   color: #333;
 }
 
-.json-button-group,
-.images-button-group {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.json-btn,
-.image-btn {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
+#resourceSelect {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 12px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  width: 80%;
+  max-width: 400px;
+  cursor: pointer;
+  transition: border-color 0.2s;
 }
 
-.view-btn {
-  background-color: #64b5f6;
-  color: #fff;
+#resourceSelect:hover {
+  border-color: #64b5f6;
 }
 
-.view-btn:hover {
-  background-color: #42a5f5;
-}
-
-.download-btn {
-  background-color: #0d47a1;
-  color: #fff;
-}
-
-.download-btn:hover {
-  background-color: #08306b;
-}

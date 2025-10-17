@@ -17,33 +17,21 @@
         <h2>🏦 About This Banking Chatbot</h2>
 
         <div id="source-section">
-          <!-- JSON SECTION -->
-          <div class="json-buttons-container">
-            <h3>📦 Product Data</h3>
+
+          <div class="source-select-container">
+            <h3>📦 Resources</h3>
             <p>
-              You can view or download the latest <strong>products.json</strong> file
-              used by the chatbot’s knowledge base.
+              Select a resource below to view the <strong>products.json</strong> file or pipeline diagrams used by the chatbot.
             </p>
-
-            <div class="json-button-group">
-              <a href="/view-json" target="_blank" class="json-btn view-btn">👁️ View JSON</a>
-              <a href="/download-json" download class="json-btn download-btn">📥 Download JSON</a>
-            </div>
+        
+            <select id="resourceSelect">
+              <option value="">-- Choose a resource --</option>
+              <option value="/view-json">📄 View Products JSON</option>
+              <option value="/view-image/data_pipeline">🧩 View Data Pipeline</option>
+              <option value="/view-image/qr_pipeline">🔁 View Query–Response Pipeline</option>
+            </select>
           </div>
-
-          <!-- IMAGE SECTION -->
-          <div class="images-buttons-container">
-            <h3>🧩 Pipelines</h3>
-            <p>
-              You can view the <strong>Data Pipeline</strong> and
-              <strong>Query → Response Pipeline</strong> flow diagrams.
-            </p>
-
-            <div class="images-button-group">
-              <a href="/view-image/data_pipeline" target="_blank" class="image-btn view-btn">👁️ View Data Pipeline</a>
-              <a href="/view-image/qr_pipeline" target="_blank" class="image-btn view-btn">👁️ View Query–Response Pipeline</a>
-            </div>
-          </div>
+        
         </div>
       </div>
 
@@ -136,5 +124,13 @@
   <script src="/static/js/configuration.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
 
+  <script>
+    document.getElementById('resourceSelect').addEventListener('change', function () {
+      const url = this.value;
+      if (url) window.open(url, '_blank');
+      this.selectedIndex = 0; // reset to default
+    });
+  </script>
+  
 </body>
 </html>
