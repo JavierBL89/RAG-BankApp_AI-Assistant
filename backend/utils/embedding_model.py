@@ -1,7 +1,11 @@
 import os
 from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 
+HF_TOKEN = os.getenv("HF_TOKEN")
+if not HF_TOKEN:
+    raise ValueError("❌ HF_TOKEN not found")
+
 hfembeddings = HuggingFaceInferenceAPIEmbeddings(
-    api_key=os.getenv("HF_TOKEN"),
-    model_name="sentence-transformers/all-MiniLM-L6-v2"
+    api_key=HF_TOKEN,
+    model_name="BAAI/bge-m3"
 )
