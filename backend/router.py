@@ -3,6 +3,7 @@ import json
 #from rag_engine import handle_query
 from utils.scraper import scrape_multiple_urls
 import os
+import sys
 from typing import List
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
@@ -11,6 +12,7 @@ from utils.intent_generator import generate_query_intent
 from utils.lama_bot import generate_response
 from itertools import chain
 from fastapi.responses import FileResponse, JSONResponse
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 
