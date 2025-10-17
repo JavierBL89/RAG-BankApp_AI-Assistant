@@ -10,6 +10,7 @@ from utils.search_chroma import retrieve_similar_docs
 from utils.intent_generator import generate_query_intent
 from utils.lama_bot import generate_response
 from itertools import chain
+from fastapi.responses import FileResponse, JSONResponse
 
 router = APIRouter()
 
@@ -71,4 +72,27 @@ def generate_intent(q:QueryInput):
     Search the knowledge base with a query.
     """
     return generate_query_intent(q.query)
+
+
+# --- JSON FILES ---
+@router.get("/download-json")
+def download_json():
+    return FileResponse(
+        "frontend/static/products.json",
+        media_type="application/json",
+        filename="products.json"
+    )
+
+@router.get("/view-json")
+def view_json():
+    with open("frontend/static/products.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return JSONResponse(content=data)
+
+
+# --- IMAGES ---
+@router.get("/view-image/{image_name}")
+def view_image(image_name: str):
+    image_path = f"frontend/static/images/{image_name}.png"
+    return FileResponse(image_path, media_type="image/png")
             
