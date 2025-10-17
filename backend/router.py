@@ -40,8 +40,15 @@ async def chat(q:QueryInput):
     """
     Search the knowledge base with a query.
     """
-    # 1. generate different query intents based on user query
-    intent_output = generate_query_intent(q.query)
+    try:
+        # 1. generate different query intents based on user query
+        intent_output = generate_query_intent(q.query)
+    except Exception as e:
+        import traceback
+        print("❌ CHAT ROUTE ERROR:", e)
+        traceback.print_exc()
+        return {"error": str(e)}
+    
     raw_output = intent_output["choices"][0]["message"]["content"]
     # raw_output = intent_output["choices"][0]["message"]["content"]
     if "Sorry, I can only answer questions that concerns about our Bank Products" in raw_output:
@@ -75,7 +82,7 @@ def generate_intent(q:QueryInput):
 
 
 # --- JSON FILES ---
-BASE_DIR = "frontend/static"
+BASE_DIR = "../../frontend/static"
 
 # --- JSON FILES ---
 @router.get("/download-json")

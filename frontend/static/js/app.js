@@ -88,8 +88,9 @@ form.addEventListener('submit', async (e) => {
       timeoutMessageDiv = null;
       timeoutMessageShown = false;
     }
-    console.log(data.choices[0].message.content, 'bot');
-    typeBotResponse(data.choices[0].message.content, 'bot');
+    const reply = data.response || data.choices?.[0]?.message?.content || "No reply received.";
+    console.log(reply, 'bot');
+    typeBotResponse(reply, 'bot');
     
   } catch (err) {
     clearTimeout(timeOutMessage);
