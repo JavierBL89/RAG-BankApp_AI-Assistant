@@ -1,6 +1,6 @@
 import os
 from langchain_chroma import Chroma
-from utils.embedding_model import embeddings
+from utils.embedding_model import hfembeddings
 
 PERSIST_DIR = "data/index/vector_store_db"  # Chroma persistent directory
 COLLECTION = "banking_rag"
@@ -14,7 +14,7 @@ def get_retrievers(k: int = 5, where: dict | None = None):
 
     vs = Chroma(
         collection_name=COLLECTION,
-        embedding_function=embeddings,
+        embedding_function=hfembeddings,
         persist_directory=PERSIST_DIR,
     )
 
