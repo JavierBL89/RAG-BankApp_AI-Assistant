@@ -11,11 +11,11 @@
   <div id="main_wrapper">
 
     <!------ Chatbot Introduction ------>
-
     <div class="chatbot-info-panel">
 
       <div class="info-header">
         <h2>🏦 About This Banking Chatbot</h2>
+
         <div id="source-section">
           <!-- JSON SECTION -->
           <div class="json-buttons-container">
@@ -26,12 +26,8 @@
             </p>
 
             <div class="json-button-group">
-              <a href="/view-json" target="_blank" class="json-btn view-btn">
-                👁️ View JSON
-              </a>
-              <a href="/download-json" download class="json-btn download-btn">
-                📥 Download JSON
-              </a>
+              <a href="/view-json" target="_blank" class="json-btn view-btn">👁️ View JSON</a>
+              <a href="/download-json" download class="json-btn download-btn">📥 Download JSON</a>
             </div>
           </div>
 
@@ -44,12 +40,8 @@
             </p>
 
             <div class="images-button-group">
-              <a href="/view-image/data_pipeline" target="_blank" class="image-btn view-btn">
-                👁️ View Data Pipeline
-              </a>
-              <a href="/view-image/qr_pipeline" target="_blank" class="image-btn view-btn">
-                👁️ View Query–Response Pipeline
-              </a>
+              <a href="/view-image/data_pipeline" target="_blank" class="image-btn view-btn">👁️ View Data Pipeline</a>
+              <a href="/view-image/qr_pipeline" target="_blank" class="image-btn view-btn">👁️ View Query–Response Pipeline</a>
             </div>
           </div>
         </div>
@@ -97,9 +89,8 @@
         <ul>
           <li><strong>LangChain + FastAPI</strong> for backend logic</li>
           <li><strong>Hugging Face Inference API</strong> for embeddings</li>
-          <li><strong>Chroma Vector Store</strong>(Local Vector db) for quick search</li>
-          <li><strong>Meta-Llama-3-8B-Instruct</strong> for generation. Model hosted on my Huggingface Space(Private)
-          </li>
+          <li><strong>Chroma Vector Store</strong> (Local Vector DB) for quick search</li>
+          <li><strong>Meta-Llama-3-8B-Instruct</strong> for generation. Model hosted on my Hugging Face Space (Private)</li>
         </ul>
 
         <h3>✨ Features</h3>
@@ -110,28 +101,25 @@
           <li>Privacy-first: no personal data stored or shared</li>
           <li>Mobile-friendly design</li>
         </ul>
-
       </div>
     </div>
+    <!------ Chatbot Introduction End ------>
 
-  </div>
+    <!------ Chatbot section ------>
+    <div class="chat-container">
+      <h2>Ask your banking assistant</h2>
+      <div id="chatbox"></div>
 
-  <!------ Chatbot Introduction End ------>
+      <form id="chat-form">
+        <textarea id="user-input" placeholder="Ask me something..." autocomplete="off" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <!------ Chatbot section end ------>
 
+  </div> <!-- ✅ main_wrapper properly closed -->
 
-  <!------ Chatbot section ------>
-  <div class="chat-container">
-    <h2>Ask your banking assistant</h2>
-    <div id="chatbox"></div>
-
-    <form id="chat-form">
-      <textarea type="text" id="user-input" placeholder="Ask me something..." autocomplete="off" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-  <!------ Chatbot section end ------>
-
-
+  <!-- Modal -->
   <div id="reportModal" style="display: none; position: fixed; top: 10%; left: 50%; transform: translateX(-50%);
     width: 80%; max-width: 600px; background: white; padding: 20px; box-shadow: 0 0 20px rgba(0,0,0,0.3);
     z-index: 9999; border-radius: 8px; font-family: sans-serif;">
@@ -141,18 +129,12 @@
     <p><strong>Prompt:</strong> <span id="modalPrompt"></span></p>
     <p><strong>Outputs:</strong></p>
     <pre id="modalOutputs" style="white-space: pre-wrap; background: #f5f5f5; padding: 10px;"></pre>
-    <button onclick="document.getElementById('reportModal').style.display='none'"
-      style="margin-top: 10px;">Close</button>
+    <button onclick="document.getElementById('reportModal').style.display='none'" style="margin-top: 10px;">Close</button>
   </div>
-
-  </div>
-
 
   <script src="/static/js/app.js" defer></script>
   <script src="/static/js/configuration.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
 
 </body>
-</body>
-
 </html>
