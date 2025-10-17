@@ -88,8 +88,17 @@ form.addEventListener('submit', async (e) => {
       timeoutMessageDiv = null;
       timeoutMessageShown = false;
     }
-    console.log(data.choices[0].message.content, 'bot');
-    typeBotResponse(data.choices[0].message.content, 'bot');
+
+    console.log("🟢 Server response:", data);
+    // Defensive handling
+    if (data.choices && data.choices[0]?.message?.content) {
+      typeBotResponse(data.choices[0].message.content, 'bot');
+    } else if (data.error) {
+      console.error("Server error:", data.error);
+      typeBotResponse(`⚠️ Server Error:\n${data.error}`, 'bot');
+    } else {
+      typeBotResponse("⚠️ Unexpected response format from server.", 'bot');
+    }
     
   } catch (err) {
     clearTimeout(timeOutMessage);

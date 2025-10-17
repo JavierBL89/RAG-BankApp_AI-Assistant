@@ -9,6 +9,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PERSIST_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "data", "index", "vector_store_db")) # Directory where the Chroma vector store is persisted
 COLLECTION = "banking_rag"
+print("📦 Using absolute path for vectore_db:", PERSIST_DIR)
+
 
 if not os.path.exists(PERSIST_DIR):
     raise RuntimeError(f"❌ Chroma path not found: {PERSIST_DIR}")
