@@ -4,6 +4,7 @@ import os
 from router import router  # adjust path if needed
 # Add CORS middleware if frontend is on a different port (e.g. 3000)
 from fastapi.responses import FileResponse
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 app = FastAPI()
 

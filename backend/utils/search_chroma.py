@@ -32,7 +32,7 @@ def retrieve_similar_docs(all_queries: list[str]):
     merged_query = " ".join(all_queries).strip()
 
     retriever = get_retrievers(k=5)
-    relevant_retrieved_docs = retriever.get_relevant_documents(merged_query)
+    relevant_retrieved_docs = retriever.invoke(merged_query)
 
     # Optional product-based filtering
     filtered_docs = [

@@ -11,6 +11,8 @@ from utils.intent_generator import generate_query_intent
 from utils.lama_bot import generate_response
 from itertools import chain
 from fastapi.responses import FileResponse, JSONResponse
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 
 router = APIRouter()
 
@@ -62,9 +64,17 @@ async def chat(q:QueryInput):
     generated_queries.append(q.query) # append the original query to the list of queries
     all_queries = generated_queries
     print("Generated queries:", all_queries)
+
     # 2. retrieve relevant documents based on the query
-    relevant_docs = await retrieve_similar_docs(all_queries)
-    print("Retrieved documents:", relevant_docs)
+    try:
+        relevant_docs = await retrieve_similar_docs(all_queries)
+        print("Retrieved documents:", relevant_docs)
+    except Exception as e:
+        import traceback
+        print("❌ ERROR retrieving docs:", e)
+        traceback.print_exc()
+        return {"error": f"Retriever failed: {e}"}
+    
     # 3. generate response based on the retrieved documents and intent
     context = [doc.page_content for doc in relevant_docs] # extract only page content (no metadata) from retrieved documents
     print("Context for response generation:", context)
