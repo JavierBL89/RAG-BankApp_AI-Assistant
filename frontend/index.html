@@ -11,31 +11,13 @@
   <div id="main_wrapper">
 
     <!------ Chatbot Introduction ------>
-    <div class="chatbot-info-panel">
+    <div id="chatbot-info-panel">
 
-      <div class="info-header">
+      <div id="info-header">
         <h2>🏦 About This Banking Chatbot</h2>
-
-        <div id="source-section">
-
-          <div class="source-select-container">
-            <h3>📦 Resources</h3>
-            <p>
-              Select a resource below to view the <strong>products.json</strong> file or pipeline diagrams used by the chatbot.
-            </p>
-        
-            <select id="resourceSelect">
-              <option value="">-- Choose a resource --</option>
-              <option value="/view-json">📄 View Products JSON</option>
-              <option value="/view-image/data_pipeline">🧩 View Data Pipeline</option>
-              <option value="/view-image/qr_pipeline">🔁 View Query–Response Pipeline</option>
-            </select>
-          </div>
-        
-        </div>
       </div>
 
-      <div class="info-content">
+      <div id="info-content">
         <p>
           This chatbot helps users explore <strong>Bank of Ireland’s financial products</strong> —
           including mortgages, loans, credit cards, current accounts, savings, and pensions.
@@ -89,6 +71,25 @@
           <li>Privacy-first: no personal data stored or shared</li>
           <li>Mobile-friendly design</li>
         </ul>
+      </div>
+
+      <div id="source-section">
+
+        <div class="source-select-container">
+          <h3>📦 Resources</h3>
+          <p>
+            Select a resource below to view the <strong>products.json</strong> file or pipeline diagrams used by the chatbot.
+          </p>
+      
+          <select id="resourceSelect">
+            <option value="">-- Choose a resource --</option>
+            <option value="/view-json">View Products JSON</option>
+            <option value="/download-json">Download Products JSON</option>
+            <option value="/view-image/data_pipeline">View Data Pipeline Diagram</option>
+            <option value="/view-image/qr_pipeline">View Query–Response Pipeline</option>
+          </select>
+        </div>
+      
       </div>
     </div>
     <!------ Chatbot Introduction End ------>

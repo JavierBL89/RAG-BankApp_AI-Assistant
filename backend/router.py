@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, HTTPException
 import json
 #from rag_engine import handle_query
 from utils.scraper import scrape_multiple_urls
-
+import os
 from typing import List
 from pydantic import BaseModel
 from typing import Optional, Dict, Any
@@ -75,17 +75,23 @@ def generate_intent(q:QueryInput):
 
 
 # --- JSON FILES ---
+BASE_DIR = "frontend/static"
+
+# --- JSON FILES ---
 @router.get("/download-json")
 def download_json():
-    return FileResponse(
-        "frontend/static/products.json",
-        media_type="application/json",
-        filename="products.json"
-    )
+    json_path = os.path.join(BASE_DIR, "products.json")
+    if not os.path.exists(json_path):
+        raise HTTPException(status_code=404, detail="products.json not found")
+    return FileResponse(json_path, media_type="application/json", filename="products.json")
 
 @router.get("/view-json")
 def view_json():
-    with open("frontend/static/products.json", "r", encoding="utf-8") as f:
+    json_path = os.path.join(BASE_DIR, "products.json")
+    if not os.path.exists(json_path):
+        raise HTTPException(status_code=404, detail="products.json not found")
+
+    with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
     return JSONResponse(content=data)
 
@@ -93,6 +99,10 @@ def view_json():
 # --- IMAGES ---
 @router.get("/view-image/{image_name}")
 def view_image(image_name: str):
-    image_path = f"frontend/static/images/{image_name}.png"
+    image_path = os.path.join(BASE_DIR, "images", f"{image_name}.png")
+    if not os.path.exists(image_path):
+        raise HTTPException(status_code=404, detail=f"{image_name}.png not found")
+
     return FileResponse(image_path, media_type="image/png")
+
             
