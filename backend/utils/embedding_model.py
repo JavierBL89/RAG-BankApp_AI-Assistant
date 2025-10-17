@@ -8,9 +8,7 @@ if not HF_TOKEN:
 hfembeddings = HuggingFaceInferenceAPIEmbeddings(
     api_key=HF_TOKEN,
     model_name="BAAI/bge-m3",
-    model_kwargs={
-        "device": "cpu",
-        "trust_remote_code": True
-    },
     encode_kwargs={"normalize_embeddings": True}
 )
+
+
