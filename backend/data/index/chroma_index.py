@@ -1,20 +1,22 @@
 from langchain_chroma import Chroma
-from backend.utils.embedding_model import embeddings
+from backend.utils.embedding_model import hfembeddings
 from backend.utils.chunk_data import load_dataSource
 import shutil
 from collections import Counter
+import os
 
-
-
-PERSIST_DIR = "backend/data/index/vector_store_db"  # Directory where the Chroma vector store is persisted
+# Use an absolute path (works both locally and on Render)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PERSIST_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "data", "index", "vector_store_db")) # Directory where the Chroma vector store is persisted
 COLLECTION = "banking_rag"
+
 
 # This script builds a Chroma vector store index for the banking knowledge base.
 def build_chroma():
     docs = load_dataSource()
     vs= Chroma(
         collection_name=COLLECTION,
-        embedding_function=embeddings,
+        embedding_function=hfembeddings,
         persist_directory=PERSIST_DIR,
     )
 
