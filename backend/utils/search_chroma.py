@@ -2,7 +2,11 @@ import os
 from langchain_chroma import Chroma
 from utils.embedding_model import hfembeddings
 
-PERSIST_DIR = "data/index/vector_store_db"  # Chroma persistent directory
+# Build an absolute path that works both locally and on Render
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PERSIST_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "data", "index", "vector_store_db")) # Chroma persistent directory
+print("📦 Using absolute path for Chroma DB:", PERSIST_DIR)
+
 COLLECTION = "banking_rag"
 
 
