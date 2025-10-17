@@ -70,7 +70,7 @@ form.addEventListener('submit', async (e) => {
   }, 5000);
 
   try {
-    const response = await fetch('http://localhost:8000/chat', {
+    const response = await fetch(`${getBaseUrl()}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: message }),
