@@ -1,5 +1,5 @@
 from langchain_chroma import Chroma
-from backend.utils.embedding_model import hfembeddings
+from backend.utils.embedding_model import embeddings
 from backend.utils.chunk_data import load_dataSource
 import shutil
 from collections import Counter
@@ -22,7 +22,7 @@ def build_chroma():
     docs = load_dataSource()
     vs= Chroma(
         collection_name=COLLECTION,
-        embedding_function=hfembeddings,
+        embedding_function=embeddings,
         persist_directory=PERSIST_DIR,
     )
 
