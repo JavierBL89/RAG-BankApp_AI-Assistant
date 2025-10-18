@@ -1,6 +1,6 @@
 import os
 from langchain_chroma import Chroma
-from utils.embedding_model import hfembeddings
+from utils.embedding_model import embeddings
 
 # Build an absolute path that works both locally and on Render
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +18,7 @@ def get_retrievers(k: int = 5, where: dict | None = None):
 
     vs = Chroma(
         collection_name=COLLECTION,
-        embedding_function=hfembeddings,
+        embedding_function=embeddings,
         persist_directory=PERSIST_DIR,
     )
 
