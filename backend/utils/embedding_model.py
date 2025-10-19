@@ -3,7 +3,7 @@ import requests
 from langchain_chroma import Chroma
 
 # Hugging Face Space API endpoint for embeddings
-HF_SPACE_URL = "https://javierBLdev89-embedding-model-all-minilm-l6-v2.hf.space/embed"
+HF_SPACE_URL = "https://huggingface.co/spaces/javierBLdev89/embedding-model_all-MiniLM-L6-v2/embed"
 
 # --- Local paths ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
