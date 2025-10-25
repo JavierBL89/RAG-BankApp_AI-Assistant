@@ -69,7 +69,7 @@ async def chat(q:QueryInput):
 
     # 2. retrieve relevant documents based on the query
     try:
-        relevant_docs = await retrieve_similar_docs(all_queries)
+        relevant_docs = retrieve_similar_docs(all_queries)
         print("Retrieved documents:", relevant_docs)
     except Exception as e:
         import traceback

@@ -4,6 +4,12 @@ from langchain_chroma import Chroma
 
 # Hugging Face Space API endpoint for embeddings
 HF_SPACE_URL = "https://javierbldev89-embedding-model-all-minilm-l6-v2.hf.space/embed"
+HF_TOKEN = os.getenv("HF_TOKEN")
+
+HEADERS = {
+    "Authorization": f"Bearer {HF_TOKEN}",
+    "Content-Type": "application/json"
+}
 
 # --- Local paths ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -21,7 +27,7 @@ class HFSpaceEmbedding:
 
     def _call_api(self, texts):
         try:
-            res = requests.post(HF_SPACE_URL, json={"texts": texts}, timeout=20)
+            res = requests.post(HF_SPACE_URL, headers=HEADERS, json={"texts": texts}, timeout=30)
             res.raise_for_status()
             data = res.json()
             return data.get("embeddings", [])
