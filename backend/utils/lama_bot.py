@@ -6,7 +6,7 @@ import os
 load_dotenv()  # Loads variables from .env into os.environimport requests
 import traceback
 
-async def generate_response(context: list) :
+async def generate_response(context: list, all_queries: list[str]) :
     """
 
     """
@@ -33,6 +33,10 @@ async def generate_response(context: list) :
         for i, doc in enumerate(context)
     ])
 
+    # Convert list to string
+    merged_query = " ".join(all_queries)
+    print(formatted_context)
+
     custom_message= "❌ Sorry, Model is unavailable."
     API_URL = "https://router.huggingface.co/v1/chat/completions"
     # text = "What is the interest rate for savings accounts?"
@@ -43,7 +47,7 @@ async def generate_response(context: list) :
         }
         payload = {
             
-            "temperature": 0.5,
+            "temperature": 0.3,
             "messages": [
                 {
                     "role": "system",
@@ -58,13 +62,16 @@ async def generate_response(context: list) :
 
                        ### Response instructions
                        - Do not start your response with a headding about the topic.
-                       - If the answer is in the retrieved documents, provide a concise and accurate answer based on the information in the documents.
-                       - If the answer is not in the retrieved documents, say "Sorry, the provided documents do not contain this information".
+                       - If the retrieved document is clearly related to the **user’s topic**, generate a concise and relevant answer using only that information.
                        - Do not invent information or provide answers that are not in the retrieved documents.
+                       - Base your answer only on the provided context.
                        - Provide the relevant link in the document where the answer was found.
                        - If the user asks for a specific product, provide the link to that product.
 
                        ### Retrieved documents: {formatted_context}
+
+                        ### User querys:
+                        {merged_query}
                 """
                 }
             ],

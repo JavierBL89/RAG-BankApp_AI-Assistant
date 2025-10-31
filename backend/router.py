@@ -80,7 +80,7 @@ async def chat(q:QueryInput):
     # 3. generate response based on the retrieved documents and intent
     context = [doc.page_content for doc in relevant_docs] # extract only page content (no metadata) from retrieved documents
     print("Context for response generation:", context)
-    bot_response = await generate_response(relevant_docs)
+    bot_response = await generate_response(relevant_docs, all_queries)
 
     return bot_response
 
@@ -94,19 +94,19 @@ def generate_intent(q:QueryInput):
 
 
 # --- JSON FILES ---
-BASE_DIR = "../../frontend/static"
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend/static"))
 
 # --- JSON FILES ---
 @router.get("/download-json")
 def download_json():
-    json_path = os.path.join(BASE_DIR, "products.json")
+    json_path = os.path.join(BASE_DIR, "js", "products.json")
     if not os.path.exists(json_path):
         raise HTTPException(status_code=404, detail="products.json not found")
     return FileResponse(json_path, media_type="application/json", filename="products.json")
 
 @router.get("/view-json")
 def view_json():
-    json_path = os.path.join(BASE_DIR, "products.json")
+    json_path = os.path.join(BASE_DIR, "js", "products.json")
     if not os.path.exists(json_path):
         raise HTTPException(status_code=404, detail="products.json not found")
 

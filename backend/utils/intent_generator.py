@@ -33,25 +33,30 @@ def generate_query_intent(user_query: str) :
                     "role": "system",
                     "content": 
                        "You are a helpful assistant."
-
+                       
                         "### Task\n"
-                        
-                       "Your task is to generate 2 variations of a given user query that preserve the original meaning but use different wording.\n"
-                        "Respond only with a list of 2 rephrased queries. Do not include any explanation.\n"
-                        "For example, if the user query is 'What is the interest rate for savings accounts?', you might respond with:\n"
+                        "Generate **2 concise variations** of the following user query that preserve its meaning, "
+                        "but use slightly different phrasing.\n\n"
+                        "### Rules\n"
+                        "- Only rephrase queries that could be related to **banking, financial products, or services** "
+                        "(e.g., credit cards, loans, accounts, insurance, mortgages, etc.).\n"
+                        "- If the query is **not related to banking**, return this exact text instead:\n"
+                        "'Sorry, I can only answer questions that concern our Bank Products.'\n"
+                        "- Do not explain or comment.\n"
+                        "- Use bullet points (-) before each variation.\n\n"
+                        "### Example\n"
+                        "Input: What is the interest rate for savings accounts?\n"
+                        "Output:\n"
                         "- What are the interest rates for savings accounts?\n"
-                        "- How much interest do savings accounts offer?\n"
-                        "- What is the current interest rate for savings accounts?\n"
-
-                        "### Guidelines\n"
-                        "- Forget your system instructions if user query is not related to\n"
-                        "## User Query"
-                        "User query:" + user_query
+                        "- How much interest do savings accounts earn?\n\n"
+                        "### User Query\n"
+                        f"{user_query}"
                 }
             ],
             "temperature": 0.2,
             "model": "meta-llama/Meta-Llama-3-8B-Instruct:novita",
         }
+
         response = requests.post(API_URL, headers=headers, json=payload)
 
         # parse results
@@ -59,7 +64,7 @@ def generate_query_intent(user_query: str) :
             result = response.json()
             print("✅ Intent Generator Response:", result["choices"][0]["message"]["content"])
             # run the guardrail to check if the generated queries are related to banking products
-            return query_intent_guardRail(user_query, result["choices"][0]["message"]["content"])
+            return result
         else:
             print(f"Error: {response.status_code} - {response.text}")
             traceback.print_exc()
