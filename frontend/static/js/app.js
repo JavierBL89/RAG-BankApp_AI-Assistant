@@ -70,7 +70,7 @@ form.addEventListener('submit', async (e) => {
   }, 5000);
 
   try {
-    const response = await fetch(`${getBaseUrl()}/chat`, {
+    const response = await fetch(`https://rag-bankapp-ai-assistant.onrender.com/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: message }),

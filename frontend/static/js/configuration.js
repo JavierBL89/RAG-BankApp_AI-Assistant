@@ -3,8 +3,8 @@
  * Centralized configuration for all JavaScript files
  */
 const APP_CONFIG = {
-    DEV: false, // Set to false for production
-    LOCAL_URL: "http://127.0.0.1:5001",
+    DEV: true, // Set to false for production
+    LOCAL_URL: "http://127.0.0.1:8000",
     PROD_URL: "https://rag-bankapp-ai-assistant.onrender.com"
 };
 

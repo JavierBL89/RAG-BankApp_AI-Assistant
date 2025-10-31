@@ -42,13 +42,11 @@ async def generate_response(context: list) :
         "Content-Type": "application/json"
         }
         payload = {
-            "parameters": {
-                "temperature": 0.5,
-                "max_new_tokens": 512,
-                },
+            
+            "temperature": 0.5,
             "messages": [
                 {
-                    "role": "user",
+                    "role": "system",
                     "content": 
                     f"""
                        ### Role

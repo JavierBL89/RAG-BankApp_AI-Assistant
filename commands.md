@@ -1,4 +1,4 @@
-🚀 To Run It
+# 🚀 To Run It
 
 ### Terminal 1: Backend
 cd backend

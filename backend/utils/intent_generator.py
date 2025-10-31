@@ -30,7 +30,7 @@ def generate_query_intent(user_query: str) :
         payload = {
             "messages": [
                 {
-                    "role": "user",
+                    "role": "system",
                     "content": 
                        "You are a helpful assistant."
 
@@ -94,7 +94,7 @@ def query_intent_guardRail(user_input: str, generated_queries: list):
         payload = {
             "messages": [
                 {
-                    "role": "user",
+                    "role": "system",
                     "content": (
                         "You are a helpful assistant."
                         "\n### Task\n"
