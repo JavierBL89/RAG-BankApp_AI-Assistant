@@ -11,6 +11,8 @@ const APP_CONFIG = {
 /**
  * Get the base URL for API calls based on DEV flag
  */
-function getBaseUrl() {
+const getBaseUrl = function getBaseUrl() {
     return APP_CONFIG.DEV ? APP_CONFIG.LOCAL_URL : APP_CONFIG.PROD_URL;
 }
+
+export  {getBaseUrl};

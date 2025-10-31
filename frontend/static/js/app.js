@@ -1,10 +1,16 @@
+import { getBaseUrl } from './configuration.js';
+
 let timeoutMessageShown = false;
 let timeoutMessageDiv = null;
 let timeoutHandle = null;
 
+
 const form = document.getElementById('chat-form');
 const input = document.getElementById('user-input');
 const chatbox = document.getElementById('chatbox');
+
+const BASE_URL = getBaseUrl();
+
 
 const md = window.markdownit({
   breaks: true,
@@ -70,7 +76,7 @@ form.addEventListener('submit', async (e) => {
   }, 5000);
 
   try {
-    const response = await fetch(`https://rag-bankapp-ai-assistant.onrender.com/chat`, {
+    const response = await fetch(`${BASE_URL}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query: message }),
