@@ -94,21 +94,21 @@ def generate_intent(q:QueryInput):
 
 
 # --- JSON FILES ---
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../frontend/static"))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../frontend/static"))
 
 # --- JSON FILES ---
 @router.get("/download-json")
 def download_json():
-    json_path = os.path.join(BASE_DIR, "js", "products.json")
+    json_path = os.path.join(BASE_DIR, "products.json")
     if not os.path.exists(json_path):
         raise HTTPException(status_code=404, detail="products.json not found")
     return FileResponse(json_path, media_type="application/json", filename="products.json")
 
 @router.get("/view-json")
 def view_json():
-    json_path = os.path.join(BASE_DIR, "js", "products.json")
+    json_path = os.path.join(BASE_DIR, "products.json")
     if not os.path.exists(json_path):
-        raise HTTPException(status_code=404, detail="products.json not found")
+        raise HTTPException(status_code=404, detail="products.json not found. Path" + json_path)
 
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
